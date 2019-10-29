@@ -9,6 +9,10 @@ import {
 } from './assets/images';
 
 class Header extends Component {
+  handleUserMenu() {
+    console.log('teste');
+  }
+
   render() {
     return (
       <Top>
@@ -23,7 +27,7 @@ class Header extends Component {
           </div>
           <ImagemSino />
           <ImagemPortais />
-          <ImagemUsuario />
+          <ImagemUsuario onClick={this.handleUserMenu} />
         </div>
       </Top>
     );
