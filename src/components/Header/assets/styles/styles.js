@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import Cia from './../images/cia.png';
+import CiaStatus from './../images/cia-status.png';
+
 export const Top = styled.div`
   display: flex;
   height: 50px;
@@ -25,6 +28,37 @@ export const Top = styled.div`
       color: #9dcae0;
       font-size: 10px;
       margin-left: 10px;
+      width: 170px;
+    }
+  }
+
+  .right-actions {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 150px;
+
+    .cia {
+      content: '';
+      border-radius: 50px;
+      width: 32px;
+      height: 32px;
+      background-image: url(${Cia});
+      position: relative;
+
+      .status {
+        background-image: url(${CiaStatus});
+        background-size: 10px;
+        width: 12px;
+        height: 12px;
+        bottom: -2px;
+        right: -2px;
+        background-repeat: no-repeat;
+        position: absolute;
+      }
+    }
+
+    .flex {
+      display: flex;
     }
   }
 `;
