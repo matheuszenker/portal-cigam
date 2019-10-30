@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const UserMenuBox = styled.div`
   position: absolute;
-  top: 11px;
+  top: 13px;
   right: 0px;
 
   .item-menu {
@@ -12,5 +12,6 @@ export const UserMenuBox = styled.div`
     padding: 15px;
     color: #7c7d7e;
     cursor: pointer;
+    margin-top: -1px;
   }
 `;
