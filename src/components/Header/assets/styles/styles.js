@@ -10,10 +10,11 @@ export const Top = styled.div`
   background-color: #2a7294;
   position: fixed;
   z-index: 1000;
-  padding-right: 50px;
+  padding-right: 80px;
   padding-left: 25px;
   justify-content: space-between;
   align-items: center;
+  margin-left: 50px;
 
   h3 {
     color: #9dcbe1;

@@ -20,7 +20,7 @@ export const PortalsMenuBox = styled.div`
     flex-wrap: wrap;
     margin-top: 20px;
 
-    .portal {
+    .image-link {
       text-align: center;
       flex-grow: 1;
       width: 33%;

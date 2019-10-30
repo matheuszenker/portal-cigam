@@ -11,7 +11,7 @@ import {
   ImagemPortalGerencial,
 } from './assets/images/';
 
-import Portal from './components/Portal';
+import ImageLink from '../ImageLink';
 
 const PortalsMenu = () => {
   return (
@@ -19,24 +19,28 @@ const PortalsMenu = () => {
       <PortalsMenuBox>
         <h4>PORTAIS</h4>
         <div className="container-portal">
-          <Portal Imagem={ImagemPortalCigam} Caminho="/" Nome="CIGAM" />
-          <Portal
+          <ImageLink Imagem={ImagemPortalCigam} Caminho="/" Nome="CIGAM" />
+          <ImageLink
             Imagem={ImagemPortalCliente}
             Caminho="/portal-cliente"
             Nome="Cliente"
           />
-          <Portal
+          <ImageLink
             Imagem={ImagemPortalConhecimento}
             Caminho="/portal-conhecimento"
             Nome="Conhecimento"
           />
-          <Portal Imagem={ImagemPortalCrm} Caminho="/portal-crm" Nome="CRM" />
-          <Portal
+          <ImageLink
+            Imagem={ImagemPortalCrm}
+            Caminho="/portal-crm"
+            Nome="CRM"
+          />
+          <ImageLink
             Imagem={ImagemPortalFornecedor}
             Caminho="/portal-fornecedor"
             Nome="Fornecedor"
           />
-          <Portal
+          <ImageLink
             Imagem={ImagemPortalGerencial}
             Caminho="/portal-gerencial"
             Nome="Gerencial"
