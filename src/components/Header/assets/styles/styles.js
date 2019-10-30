@@ -33,8 +33,10 @@ export const Top = styled.div`
   }
 
   .right-actions {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 150px;
 
     .cia {
@@ -57,8 +59,8 @@ export const Top = styled.div`
       }
     }
 
-    .flex {
-      display: flex;
+    .relative {
+      position: relative;
     }
   }
 `;

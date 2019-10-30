@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import UserMenu from '../UserMenu';
+
 import { Top } from './assets/styles/styles';
 import {
   ImagemLogoCigam,
@@ -8,12 +10,19 @@ import {
   ImagemUsuario,
 } from './assets/images';
 
+import { Button } from '../../assets/styles/components';
+
 class Header extends Component {
-  handleUserMenu() {
-    console.log('teste');
-  }
+  state = {
+    userMenu: false,
+  };
+
+  handleUserMenu = () => {
+    this.setState({ userMenu: !this.state.userMenu });
+  };
 
   render() {
+    const { userMenu } = this.state;
     return (
       <Top>
         <h3>Portal CIGAM</h3>
@@ -27,7 +36,12 @@ class Header extends Component {
           </div>
           <ImagemSino />
           <ImagemPortais />
-          <ImagemUsuario onClick={this.handleUserMenu} />
+          <div>
+            <Button onClick={this.handleUserMenu}>
+              <ImagemUsuario />
+            </Button>
+            <div className="relative">{userMenu && <UserMenu />}</div>
+          </div>
         </div>
       </Top>
     );
