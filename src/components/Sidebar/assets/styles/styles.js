@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 50px;
-  position: absolute;
+  position: fixed;
   height: 100%;
 
   .menu {
