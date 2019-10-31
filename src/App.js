@@ -10,7 +10,10 @@ function App() {
     <>
       <Header />
       <Sidebar />
-      <Routes />
+      <div className="container-layout">
+        <Routes />
+      </div>
+
       <GlobalStyle />
     </>
   );

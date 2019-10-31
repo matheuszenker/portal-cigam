@@ -58,4 +58,11 @@ export const Container = styled.div`
       }
     }
   }
+
+  /*MOBILE*/
+  @media only screen and (max-width: 768px) {
+    .menu-options {
+      width: 0px;
+    }
+  }
 `;

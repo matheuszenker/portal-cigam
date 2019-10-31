@@ -64,4 +64,11 @@ export const Top = styled.div`
       position: relative;
     }
   }
+
+  /*MOBILE*/
+  @media only screen and (max-width: 768px) {
+    .logo {
+      display: none;
+    }
+  }
 `;

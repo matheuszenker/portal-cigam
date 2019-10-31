@@ -25,4 +25,15 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .container-layout {
+    padding: 60px 30px 10px 70px;
+  }
+
+  /*MOBILE*/
+  @media only screen and (max-width: 768px) {
+    .container-layout {
+      padding: 60px 20px;
+    }
+  }
 `;
