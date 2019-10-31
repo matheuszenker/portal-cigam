@@ -10,7 +10,7 @@ export const ImagemHome = () => (
   <img src={Home} alt="Home" height="20" width="20" />
 );
 export const ImagemArquivos = () => (
-  <img src={Arquivos} alt="Home" height="22" width="16" />
+  <img src={Arquivos} alt="Home" height="22" width="22" />
 );
 export const ImagemContatos = () => (
   <img src={Contatos} alt="Home" height="19" width="19" />
