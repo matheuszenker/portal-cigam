@@ -13,6 +13,7 @@ export const PortalsMenuBox = styled.div`
   h4 {
     font-size: 12px;
     color: #717171;
+    width: 100%;
   }
 
   .container-portal {
