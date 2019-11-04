@@ -4,7 +4,7 @@ import { locale, loadMessages } from "devextreme/localization"
 
 import Container from './styles'
 
-import { data } from './data'
+import { data, states } from './data'
 import DataGrid, {
   Editing,
   Popup,
@@ -12,7 +12,9 @@ import DataGrid, {
   Position,
   Form,
   FilterRow,
-  RequiredRule
+  RequiredRule,
+  Lookup,
+  Column
 } from 'devextreme-react/data-grid'
 import { Item } from 'devextreme-react/form'
 
@@ -61,11 +63,18 @@ class EmpresasPessoas extends Component {
                   <RequiredRule />
                 </Item>
                 <Item dataField={'municipio'} />
-                <Item dataField={'UF'} />
+                <Item dataField={'StateID'} />
                 <Item dataField={'CNPJ / CPF'} />
               </Item>
             </Form>
           </Editing>
+          <Column dataField={'Fantasia | NomeCompleto'} caption={'Title'} width={70} />
+          <Column dataField={'fone'} />
+          <Column dataField={'municipio'} />
+          <Column dataField={'StateID'} caption={'State'}>
+            <Lookup dataSource={states} valueExpr={'id'} displayExpr={'state'} />
+          </Column>
+          <Column dataField={'CNPJ / CPF'} visible={false} />
         </DataGrid>
       </Container>
     );
