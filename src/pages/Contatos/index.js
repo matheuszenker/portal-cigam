@@ -25,11 +25,11 @@ class Contatos extends Component {
         // Podemos colocar um hardcode
         locale('pt-BR')
         this.phoneOptions = {
-            mask: '555',
+            mask: '000',
             maskRules: {
               X: /[02-9]/
             },
-            useMaskedValue: true,
+            useMaskedValue: false,
             maskInvalidMessage: 'Seu ramal deve ter o formato "555"!'
         }
     }
@@ -49,7 +49,7 @@ class Contatos extends Component {
                     allowDeleting={true}
                     allowUpdating={true}
                     useIcons={true}>
-                    <Popup title={'Contatos'} showTitle={true} width={600} height={280}>
+                    <Popup title={'Contatos'} showTitle={true} width={600} height={300}>
                         <Position my={'middle'} at={'middle'} of={window} />
                     </Popup>
                     <Form>
