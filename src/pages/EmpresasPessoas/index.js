@@ -1,27 +1,35 @@
-import React, { Component } from 'react';
-import ptMessages from "devextreme/localization/messages/pt.json";
+import React, { Component } from 'react'
+import ptMessages from "devextreme/localization/messages/pt.json"
 import { locale, loadMessages } from "devextreme/localization"
 
-import Container from './styles';
+import Container from './styles'
 
-import { data } from './data';
+import { data } from './data'
 import DataGrid, {
   Editing,
   Popup,
   Paging,
   Position,
   Form,
-  Texts,
   FilterRow,
-  Scrolling
-} from 'devextreme-react/data-grid';
-import { Item } from 'devextreme-react/form';
+  RequiredRule
+} from 'devextreme-react/data-grid'
+import { Item } from 'devextreme-react/form'
 
 class EmpresasPessoas extends Component {
   constructor() {
     super()
     loadMessages(ptMessages)
-    locale(navigator.language)
+    // Pode ser usado navigator.language
+    locale('pt-BR')
+    this.phoneOptions = {
+        mask: '(00) 0000-0000',
+        maskRules: {
+          X: /[02-9]/
+        },
+        useMaskedValue: true,
+        maskInvalidMessage: 'Seu telefone deve ter o formato "(55) 5555-5555"!'
+    }
   }
 
   state = {
@@ -31,7 +39,7 @@ class EmpresasPessoas extends Component {
   render() {
     return (
       <Container >
-        <DataGrid dataSource={this.state.empregados} id="dados">
+        <DataGrid dataSource={this.state.empregados}>
           <Paging 
               defaultPageSize={12} />
           <FilterRow visible={true} />
@@ -39,15 +47,19 @@ class EmpresasPessoas extends Component {
             mode={'popup'}
             allowAdding={true}
             allowDeleting={true}
-            allowUpdating={true}>
-              <Texts confirmDeleteMessage='Você gostaria de remover o registro?'/>
-              <Popup title={'Empresa | Pessoa'} showTitle={true} width={600} height={300}>
-              <Position my={'top'} at={'top'} of={'#dados'} />
+            allowUpdating={true}
+            useIcons={true}>
+              <Popup title={'Empresa | Pessoa'} showTitle={true} width={800} height={300}>
+              <Position my={'middle'} at={'middle'} of={window} />
             </Popup>
             <Form>
               <Item itemType={'group'} colCount={2} colSpan={2}>
-                <Item dataField={'Fantasia | NomeCompleto'} />
-                <Item dataField={'fone'} />
+                <Item dataField={'Fantasia | NomeCompleto'} >
+                  <RequiredRule />
+                </Item>
+                <Item dataField={'fone'} editorOptions={this.phoneOptions}>
+                  <RequiredRule />
+                </Item>
                 <Item dataField={'municipio'} />
                 <Item dataField={'UF'} />
                 <Item dataField={'CNPJ / CPF'} />
