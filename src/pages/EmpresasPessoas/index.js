@@ -1,57 +1,61 @@
 import React, { Component } from 'react';
+import ptMessages from "devextreme/localization/messages/pt.json";
+import { locale, loadMessages } from "devextreme/localization"
 
 import Container from './styles';
 
 import { data } from './data';
 import DataGrid, {
-  Column,
   Editing,
   Popup,
   Paging,
-  Lookup,
   Position,
-  Form
+  Form,
+  Texts,
+  FilterRow,
+  Scrolling
 } from 'devextreme-react/data-grid';
 import { Item } from 'devextreme-react/form';
 
 class EmpresasPessoas extends Component {
+  constructor() {
+    super()
+    loadMessages(ptMessages)
+    locale(navigator.language)
+  }
+
   state = {
     empregados: null
   }
 
   render() {
     return (
-      <div>
-        <DataGrid dataSource={this.state.empregados}>
-          <Paging enabled={false} />
+      <Container >
+        <DataGrid dataSource={this.state.empregados} id="dados">
+          <Paging 
+              defaultPageSize={12} />
+          <FilterRow visible={true} />
           <Editing
             mode={'popup'}
+            allowAdding={true}
+            allowDeleting={true}
             allowUpdating={true}>
-              <Popup title={'Employee Info'} showTitle={true} width={700} height={700}>
-              <Position my={'top'} at={'top'} of={window} />
+              <Texts confirmDeleteMessage='Você gostaria de remover o registro?'/>
+              <Popup title={'Empresa | Pessoa'} showTitle={true} width={600} height={300}>
+              <Position my={'top'} at={'top'} of={'#dados'} />
             </Popup>
             <Form>
               <Item itemType={'group'} colCount={2} colSpan={2}>
-                <Item dataField={'FirstName'} />
-                <Item dataField={'LastName'} />
-                <Item dataField={'Prefix'} />
-                <Item dataField={'BirthDate'} />
-                <Item dataField={'Position'} />
-                <Item dataField={'HireDate'} />
-                <Item
-                  dataField={'Notes'}
-                  editorType={'dxTextArea'}
-                  colSpan={2}
-                  editorOptions={{ height: 100 }} />
-              </Item>
-              <Item itemType={'group'} caption={'Home Address'} colCount={2} colSpan={2}>
-                <Item dataField={'StateID'} />
-                <Item dataField={'Address'} />
+                <Item dataField={'Fantasia | NomeCompleto'} />
+                <Item dataField={'fone'} />
+                <Item dataField={'municipio'} />
+                <Item dataField={'UF'} />
+                <Item dataField={'CNPJ / CPF'} />
               </Item>
             </Form>
           </Editing>
         </DataGrid>
-      </div>
+      </Container>
     );
   }
 

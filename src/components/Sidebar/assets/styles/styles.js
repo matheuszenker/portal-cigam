@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 50px;
   position: fixed;
   height: 100%;
+  z-index: 99
 
   .menu {
     display: flex;
